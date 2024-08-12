@@ -10,27 +10,32 @@
 
 <body>
   <script>
+    // Define options if needed (currently unused in the logic)
+    // const options = ["Option1", "Option2", "Option3", "Option4"];
 
     let results;
     let Wins = 0;
     let losses = 0;
     let cont = "y";
-
+    let userName = prompt("Welcome to the Even or Odd Game, Please enter your name to get started: ");
+    
     while (cont === "y") {
       let randomNumberFirst = Math.floor(Math.random() * 4) + 1;
       let randomNumberSecond = Math.floor(Math.random() * 4) + 1;
       let combinedNums = randomNumberFirst + randomNumberSecond;
 
-      let userName = prompt("Welcome to the Even or Odd Game, Please enter your name to get started: ");
+      
       alert("Welcome " + userName + " Let's get Started.");
 
       let gChoice = prompt('Which do you think it will be, Even or Odd?').toLowerCase();
 
+      
       if (gChoice !== "even" && gChoice !== "odd") {
         alert("Invalid Entry, please enter even or odd to continue the game");
         continue;
       }
 
+      
       let outcome;
       let evenOdd;
       if (combinedNums % 2 === 0 && gChoice === "even") {
@@ -50,7 +55,7 @@
         evenOdd = combinedNums % 2 === 0 ? "even" : "odd";
       }
 
-      // Prompt for next round
+      
       alert(userName + ", you chose " + gChoice + ", the sum was " + combinedNums + " which is an " + evenOdd + " number. You " + outcome + "!");
       cont = prompt("You " + outcome + "! Current Scores are Wins: " + Wins + " Losses: " + losses + ". Would you like to play again? (y/n)").toLowerCase();
       
